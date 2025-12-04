@@ -1,0 +1,82 @@
+body {
+
+
+.container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 20px;
+padding: 20px;
+}
+
+
+.card {
+padding: 20px;
+}
+
+
+.neo-card {
+background: rgba(255, 255, 255, 0.05);
+border-radius: 20px;
+backdrop-filter: blur(15px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 0 20px rgba(0, 150, 255, 0.15);
+}
+
+
+.neo-button {
+width: 100%;
+padding: 12px;
+background: linear-gradient(90deg, #007bff, #00e5ff);
+border: none;
+border-radius: 10px;
+color: white;
+cursor: pointer;
+transition: 0.3s;
+}
+.neo-button:hover {
+opacity: 0.8;
+}
+
+
+input {
+width: 100%;
+padding: 12px;
+margin: 10px 0;
+border-radius: 8px;
+border: none;
+background: rgba(255, 255, 255, 0.1);
+color: white;
+}
+
+
+#tournament-list, #participant-list {
+padding: 10px;
+}
+
+
+
+
+/* script.js */
+const tournamentList = document.getElementById('tournament-list');
+const registerForm = document.getElementById('register-form');
+
+
+let tournaments = JSON.parse(localStorage.getItem('tournaments')) || [];
+let participants = JSON.parse(localStorage.getItem('participants')) || [];
+
+
+function renderTournaments() {
+tournamentList.innerHTML = tournaments.map(t => `<p>• ${t}</p>`).join('');
+}
+renderTournaments();
+
+
+registerForm.addEventListener('submit', e => {
+e.preventDefault();
+const name = document.getElementById('name').value;
+const team = document.getElementById('team').value;
+participants.push({ name, team });
+localStorage.setItem('participants', JSON.stringify(participants));
+alert('Pendaftaran Berhasil!');
+registerForm.reset();
+});
