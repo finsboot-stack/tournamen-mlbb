@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="neo-header">
+<h1>Panel Admin</h1>
+</header>
+
+
+<main class="container">
+<section class="card neo-card">
+<h2>Tambah Turnamen</h2>
+<form id="add-tournament-form">
+<input type="text" id="tournament-name" placeholder="Nama Turnamen" required />
+<button type="submit" class="neo-button">Tambah</button>
+</form>
+</section>
+
+
+<section class="card neo-card">
+<h2>Daftar Peserta</h2>
+<div id="participant-list"></div>
+</section>
+</main>
+
+
+<script src="admin.js"></script>
+</body>
+</html>
